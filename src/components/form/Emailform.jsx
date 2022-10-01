@@ -8,9 +8,11 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { useGetQuestion } from "../../context/Questioncontext";
 import { Questiontext, Questiontip } from "../Questiontext";
 import { useNavigate } from "react-router-dom";
+import { useProtectioncontext } from "../../context/Protectioncontext";
 
 export function Emailform() {
   const { questionstate } = useGetQuestion();
+  const { setcodeval } = useProtectioncontext();
   const [email, setEmail] = useState("");
   const [loader, setLoader] = useState(false);
   const { cars } = useCars();
@@ -40,7 +42,10 @@ export function Emailform() {
       // });
       // console.log(response);
       localStorage.setItem("clientcodeval", email);
-      if (response.status === 200) navigate("/report");
+      if (response.status === 200) {
+        setcodeval(email);
+        navigate("/report");
+      }
     } catch (error) {
       toast.error("Please Try after some time!", {
         position: "top-right",
