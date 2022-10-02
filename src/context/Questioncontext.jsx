@@ -13,6 +13,8 @@ export function GetQuestioncontextprovider({ children }) {
         return { ...state, bustravel: action.payload.bustravel };
       case "SET_RAIL_TRAVEL":
         return { ...state, railwaytravel: action.payload.railwaytravel };
+      case "SET_ROAD_TRAVEL":
+        return { ...state, roadtravel: action.payload.roadtravel };
       // case "SET_FURNITURE_COST":
       //   return { ...state, furniturecost: action.payload.furniturecost };
       // case "SET_CLOTHES_COST":
@@ -59,6 +61,7 @@ export function GetQuestioncontextprovider({ children }) {
     gasconsumption: "0",
     diet: "veg",
     country: "IN",
+    roadtravel: "0",
   });
   return (
     <GetQuestionprov.Provider value={{ questionstate, questiondispatch }}>

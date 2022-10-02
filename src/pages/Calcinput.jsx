@@ -3,8 +3,9 @@ import { Shortflights } from "../components/form/Shortflights";
 import Twobuttons from "../components/Twobuttons";
 import { Box } from "@mui/system";
 import { useState } from "react";
-import { Setcarnum } from "../components/form/Setcarnum";
-import { Carmodifier } from "../components/Carmodifier";
+// import { Setcarnum } from "../components/form/Setcarnum";
+// import { Carmodifier } from "../components/Carmodifier";
+import { Roadtravel } from "../components/form/Roadtravel";
 import { Longflights } from "../components/form/Longflights";
 import { Bustravel } from "../components/form/Bustravel";
 import { Railtravel } from "../components/form/Railtravel";
@@ -21,8 +22,9 @@ export function Calcinput() {
     shortflights: Shortflights,
     longflights: Longflights,
     aptsize: Aptsize,
-    setcarnum: Setcarnum,
-    carmodifier: Carmodifier,
+    roadtravel: Roadtravel,
+    // setcarnum: Setcarnum,
+    // carmodifier: Carmodifier,
     bustravel: Bustravel,
     railtravel: Railtravel,
     naturalgas: Naturalgas,
