@@ -58,8 +58,8 @@ export const Report = () => {
       </Box>
       <Box paddingX="2rem" maxWidth={"36.875rem"} marginX="auto">
         <Typography marginBottom={"2rem"} variant="h5">
-          Your carbon footprint is {footprint} tons of CO₂. Here's what you can
-          do with this information.
+          Your carbon footprint is {footprint.toFixed(1)} tons of CO₂. Here's
+          what you can do with this information.
         </Typography>
         <Box
           sx={{
