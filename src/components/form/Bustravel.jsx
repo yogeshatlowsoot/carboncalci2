@@ -21,7 +21,7 @@ export function Bustravel(params) {
         <Questiontext>How much do you travel by bus each week?</Questiontext>
         <Questiontip>
           Buses are pretty efficient, so it's no big deal if your estimate is a
-          little off.
+          little off (in kms).
         </Questiontip>
       </Box>
       <Box marginBottom="7rem" display="flex" flexDirection="column" gap="1rem">

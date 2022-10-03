@@ -21,7 +21,7 @@ export function Railtravel() {
         <Questiontext>How much do you travel by rail each week?</Questiontext>
         <Questiontip>
           Rail is pretty efficient, so it's no big deal if your estimate is a
-          little off.
+          little off (in kms).
         </Questiontip>
       </Box>
       <Box marginBottom="7rem" display="flex" flexDirection="column" gap="1rem">

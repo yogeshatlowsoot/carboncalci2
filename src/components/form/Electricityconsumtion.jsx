@@ -40,7 +40,8 @@ export function Electricityconsumtion() {
         </Box>
         <Questiontext>How much electricity do you use?</Questiontext>
         <Questiontip>
-          Your electrical bill should tell you how many kWh you used.
+          Your electrical bill should tell you how many kWh you used (in
+          kWh/units).
         </Questiontip>
       </Box>
       <Box marginBottom="7rem" display="flex" flexDirection="column" gap="1rem">

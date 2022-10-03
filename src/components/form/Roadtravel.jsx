@@ -20,7 +20,7 @@ export function Roadtravel(params) {
         </Box>
         <Questiontext>How much do you travel by road each week?</Questiontext>
         <Questiontip>
-          It includes your total distance travelled on road each week in kms.
+          It includes your total distance travelled on road each week (in kms).
         </Questiontip>
       </Box>
       <Box marginBottom="7rem" display="flex" flexDirection="column" gap="1rem">

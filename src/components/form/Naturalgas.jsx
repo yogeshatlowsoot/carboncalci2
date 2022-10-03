@@ -48,7 +48,7 @@ export function Naturalgas() {
         <Questiontip>
           Most bills for natural gas should include the amount you used that
           month. You can divide the total by the number of people who share that
-          bill.
+          bill (in m<sup>3</sup>).
         </Questiontip>
       </Box>
       <Box marginBottom="7rem" display="flex" flexDirection="column" gap="1rem">
