@@ -1,16 +1,25 @@
-import { Box, Button, Typography, Link as Mlink } from "@mui/material";
+import { Box, Button, Typography, Link as Mlink, Card } from "@mui/material";
 import axios from "axios";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useProtectioncontext } from "../context/Protectioncontext";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Carbonbarchart } from "../components/Carbonbarchart";
+import { timesoffpwithworld, timesoffpwithindia } from "../function/timesoffp";
+import { getyearsandmonths } from "../function/getyearsandmonths";
+import { warmduration } from "../function/warmdurationi";
+import { Factcard } from "../components/Factcard";
+import { noofburger } from "../function/noofburger";
 
 export const Report = () => {
-  const [loader, setLoader] = useState();
+  const [loader, setLoader] = useState(true);
   const navigate = useNavigate();
   const [footprint, setFootprint] = useState(0);
   const { codeval } = useProtectioncontext();
+  const totmonths = warmduration(footprint);
+  const monthandyrs = getyearsandmonths(totmonths);
   const url = `https://lossoo.bleedblue.repl.co/getfootprintval/${codeval}`;
   useEffect(() => {
     setLoader(true);
@@ -73,24 +82,26 @@ export const Report = () => {
             fontWeight: "600",
           }}
         >
-          Your carbon footprint is {footprint.toFixed(1)} tons of CO₂.
+          Your carbon footprint is {footprint.toFixed(1)} tons of CO₂e.
         </Typography>
         <Typography
           marginBottom={"2rem"}
           textAlign="center"
-          variant="body1"
+          variant="h2"
           sx={{
+            display: { xs: "none", md: "block" },
             fontSize: { xs: "1.625rem" },
             lineHeight: "1.3",
             fontWeight: "600",
           }}
         >
-          Here's what you can do with this information.
+          Here's what that means!
         </Typography>
         <Box
           sx={{
             display: "flex",
             justifyContent: "center",
+            marginY: "1.5rem",
           }}
         >
           <Mlink
@@ -102,6 +113,80 @@ export const Report = () => {
             <Button variant="contained">Take action</Button>
           </Mlink>
         </Box>
+      </Box>
+      <Box
+        paddingX="2rem"
+        maxWidth={"36.875rem"}
+        marginX="auto"
+        marginBottom="0.5rem"
+      >
+        <Typography
+          fontSize={{ xs: "1rem", md: "1.3rem" }}
+          lineHeight={{ xs: "0.8rem", md: "1.2rem" }}
+          textAlign="center"
+        >
+          Your carbon footprint is {timesoffpwithworld(footprint)} times that of
+          the entire planet.
+        </Typography>
+      </Box>
+      <Box sx={{ paddingRight: "3rem" }} maxWidth={"36.875rem"} marginX="auto">
+        <Carbonbarchart footprintval={footprint} />
+      </Box>
+      <Box
+        padding={"2rem"}
+        maxWidth={"36rem"}
+        marginX="auto"
+        sx={{
+          display: "grid",
+          gridTemplateColumns: { md: "repeat(2, 1fr)" },
+          columnSpacing: { xs: 1, sm: 2, md: 3 },
+          columnGap: "2rem",
+          rowGap: "2rem",
+        }}
+      >
+        <Factcard
+          fact={`Your annual emissions are equivalent to ${noofburger(
+            footprint
+          )} burgers eaten.`}
+          iconemoji={"🍔"}
+        />
+        <Factcard
+          fact={`A footprint of ${footprint.toFixed(
+            1
+          )} tons would warm the earth by
+            1.5°C in ${monthandyrs.years} years ${monthandyrs.months} months.`}
+          iconemoji={"🌡️"}
+        />
+        <Factcard
+          fact={`Your footprint is ${timesoffpwithindia(
+            footprint
+          )} times the Indian average.`}
+          iconemoji={"🇮🇳"}
+        />
+        <Card
+          elevation={0}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "#f5f5f5",
+            minHeight: { xs: "11rem", md: "auto" },
+          }}
+        >
+          <Box>
+            <Mlink
+              target="_blank"
+              rel="noopener"
+              href="https://www.google.com"
+              underline="none"
+            >
+              <Typography display="flex" alignItems="center">
+                Take action &nbsp;
+                <ArrowForwardIcon />
+              </Typography>
+            </Mlink>
+          </Box>
+        </Card>
       </Box>
     </div>
   );
