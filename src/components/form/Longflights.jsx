@@ -21,6 +21,17 @@ export function Longflights() {
   return (
     <>
       <Box>
+        <Box
+          sx={{
+            width: { xs: "7rem", md: "10rem" },
+          }}
+        >
+          <img
+            className="fullimagewidth"
+            src="https://projectwren.imgix.net/calculator-icons/cloud_plane.png?auto=format%2Ccompress&q=35"
+            alt="logoimage"
+          />
+        </Box>
         <Questiontext>
           How many long flights do you take each year?
         </Questiontext>

@@ -54,3 +54,6 @@ body {
     max-width: 4.938rem;
   }
 }
+.fullimagewidth {
+  width: 100%;
+}

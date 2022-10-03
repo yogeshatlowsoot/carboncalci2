@@ -12,6 +12,17 @@ export function Diet() {
   return (
     <div>
       <Box>
+        <Box
+          sx={{
+            width: { xs: "7rem", md: "10rem" },
+          }}
+        >
+          <img
+            className="fullimagewidth"
+            src="https://projectwren.imgix.net/calculator-icons/cloud_veggies.png?auto=format%2Ccompress&q=35"
+            alt="logoimage"
+          />
+        </Box>
         <Questiontext>What is your diet like?</Questiontext>
         <Questiontip>
           Even the food you eat has a carbon footprint, but plants have smaller

@@ -83,6 +83,7 @@ export function Emailform() {
             onChange={(event) => setEmail(event.target.value)}
             label="email"
             type="email"
+            required
           />
         </Box>
         <Button type="submit" variant="contained">

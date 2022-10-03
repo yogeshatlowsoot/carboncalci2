@@ -33,6 +33,17 @@ export function Naturalgas() {
   return (
     <div>
       <Box>
+        <Box
+          sx={{
+            width: { xs: "7rem", md: "10rem" },
+          }}
+        >
+          <img
+            className="fullimagewidth"
+            src="https://projectwren.imgix.net/calculator-icons/cloud_natural_gas.png?auto=format%2Ccompress&q=35"
+            alt="logoimage"
+          />
+        </Box>
         <Questiontext>How much natural gas do you use?</Questiontext>
         <Questiontip>
           Most bills for natural gas should include the amount you used that

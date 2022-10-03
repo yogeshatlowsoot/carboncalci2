@@ -29,6 +29,17 @@ export function Aptsize() {
   return (
     <div>
       <Box>
+        <Box
+          sx={{
+            width: { xs: "7rem", md: "10rem" },
+          }}
+        >
+          <img
+            className="fullimagewidth"
+            src="https://projectwren.imgix.net/calculator-icons/cloud_house.png?auto=format%2Ccompress&q=35"
+            alt="logoimage"
+          />
+        </Box>
         <Questiontext>How big is your living space?</Questiontext>
         <Questiontip>
           Count any flights shorter than 3 hours or around 1000km, like flying

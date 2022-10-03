@@ -7,6 +7,17 @@ export function Roadtravel(params) {
   return (
     <div>
       <Box>
+        <Box
+          sx={{
+            width: { xs: "7rem", md: "10rem" },
+          }}
+        >
+          <img
+            className="fullimagewidth"
+            src="https://projectwren.imgix.net/calculator-icons/cloud_car.png?auto=format%2Ccompress&q=35"
+            alt="logoimage"
+          />
+        </Box>
         <Questiontext>How much do you travel by road each week?</Questiontext>
         <Questiontip>
           It includes your total distance travelled on road each week in kms.

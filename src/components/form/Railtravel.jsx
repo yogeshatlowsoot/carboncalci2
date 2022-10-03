@@ -7,6 +7,17 @@ export function Railtravel() {
   return (
     <div>
       <Box>
+        <Box
+          sx={{
+            width: { xs: "7rem", md: "10rem" },
+          }}
+        >
+          <img
+            className="fullimagewidth"
+            src="https://projectwren.imgix.net/calculator-icons/cloud_rail.png?auto=format%2Ccompress&q=35"
+            alt="logoimage"
+          />
+        </Box>
         <Questiontext>How much do you travel by rail each week?</Questiontext>
         <Questiontip>
           Rail is pretty efficient, so it's no big deal if your estimate is a
