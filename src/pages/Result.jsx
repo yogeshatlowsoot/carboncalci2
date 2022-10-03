@@ -57,9 +57,35 @@ export const Report = () => {
         </Button>
       </Box>
       <Box paddingX="2rem" maxWidth={"36.875rem"} marginX="auto">
-        <Typography marginBottom={"2rem"} variant="h5">
-          Your carbon footprint is {footprint.toFixed(1)} tons of CO₂. Here's
-          what you can do with this information.
+        <img
+          className="fullimagewidth"
+          src="https://projectwren.imgix.net/trees.png?auto=format%2Ccompress&q=35"
+          alt="sceneimage"
+        />
+      </Box>
+      <Box paddingX="2rem" maxWidth={"36.875rem"} marginX="auto">
+        <Typography
+          variant="body1"
+          textAlign="center"
+          sx={{
+            fontSize: { xs: "1.625rem" },
+            lineHeight: "1.3",
+            fontWeight: "600",
+          }}
+        >
+          Your carbon footprint is {footprint.toFixed(1)} tons of CO₂.
+        </Typography>
+        <Typography
+          marginBottom={"2rem"}
+          textAlign="center"
+          variant="body1"
+          sx={{
+            fontSize: { xs: "1.625rem" },
+            lineHeight: "1.3",
+            fontWeight: "600",
+          }}
+        >
+          Here's what you can do with this information.
         </Typography>
         <Box
           sx={{
