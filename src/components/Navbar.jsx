@@ -12,26 +12,27 @@ const Navbar = () => {
         bgcolor="white"
         display="flex"
         justifyContent={"space-between"}
-        paddingX={{ xs: "2rem", md: "10rem" }}
-        paddingY={"0.5rem"}
+        paddingX={{ xs: "1.25rem", md: "10rem" }}
+        paddingY={"1.25rem"}
         alignItems={"center"}
       >
         <Box>
           <Mlink target="_blank" rel="noopener" href="https://www.lowsoot.com">
-            <div className="logoimg">
+            <Box width={{ xs: "4.9rem" }} className="logoimg">
+              {/* 4.9rem */}
               <img
                 style={{ width: "100%" }}
                 src="https://uploads-ssl.webflow.com/62cf0b5a8d12de59c1f48004/62ffc9af53bbb839ac4e3c26_Logo%20Black.svg"
                 alt="lowsootoisdfj"
               />
-            </div>
+            </Box>
           </Mlink>
         </Box>
         <div className="c_links">
           <Box display="flex" gap={"0.5rem"}>
             <Mlink
               underline="none"
-              fontSize="1rem"
+              fontSize="1.125rem"
               target="_blank"
               rel="noopener"
               sx={{ color: "black" }}
@@ -41,7 +42,7 @@ const Navbar = () => {
             </Mlink>
             <Mlink
               underline="none"
-              fontSize="1rem"
+              fontSize="1.125rem"
               target="_blank"
               rel="noopener"
               sx={{ color: "black" }}
@@ -51,7 +52,7 @@ const Navbar = () => {
             </Mlink>
             <Mlink
               underline="none"
-              fontSize="1rem"
+              fontSize="1.125rem"
               target="_blank"
               rel="noopener"
               sx={{ color: "black" }}
@@ -87,7 +88,7 @@ const Navbar = () => {
         >
           <Mlink
             underline="none"
-            fontSize="1rem"
+            fontSize="1.125rem"
             target="_blank"
             rel="noopener"
             sx={{ color: "black" }}
@@ -97,7 +98,7 @@ const Navbar = () => {
           </Mlink>
           <Mlink
             underline="none"
-            fontSize="1rem"
+            fontSize="1.125rem"
             target="_blank"
             rel="noopener"
             sx={{ color: "black" }}
@@ -107,7 +108,7 @@ const Navbar = () => {
           </Mlink>
           <Mlink
             underline="none"
-            fontSize="1rem"
+            fontSize="1.125rem"
             target="_blank"
             rel="noopener"
             sx={{ color: "black" }}
