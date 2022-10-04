@@ -36,7 +36,7 @@ const Navbar = () => {
               target="_blank"
               rel="noopener"
               sx={{ color: "black" }}
-              href="https://www.lowsoot.com/about"
+              href="https://www.lowsoot.com"
             >
               About
             </Mlink>
@@ -46,7 +46,7 @@ const Navbar = () => {
               target="_blank"
               rel="noopener"
               sx={{ color: "black" }}
-              href="https://www.lowsoot.com/blog"
+              href="https://www.lowsoot.com"
             >
               Blog
             </Mlink>
@@ -56,7 +56,7 @@ const Navbar = () => {
               target="_blank"
               rel="noopener"
               sx={{ color: "black" }}
-              href="https://www.lowsoot.com/business-carbon-neutrality-as-a-service"
+              href="https://www.lowsoot.com"
             >
               Product
             </Mlink>
@@ -92,7 +92,7 @@ const Navbar = () => {
             target="_blank"
             rel="noopener"
             sx={{ color: "black" }}
-            href="https://www.lowsoot.com/about"
+            href="https://www.lowsoot.com"
           >
             About
           </Mlink>
@@ -102,7 +102,7 @@ const Navbar = () => {
             target="_blank"
             rel="noopener"
             sx={{ color: "black" }}
-            href="https://www.lowsoot.com/blog"
+            href="https://www.lowsoot.com"
           >
             Blog
           </Mlink>
@@ -112,7 +112,7 @@ const Navbar = () => {
             target="_blank"
             rel="noopener"
             sx={{ color: "black" }}
-            href="https://www.lowsoot.com/business-carbon-neutrality-as-a-service"
+            href="https://www.lowsoot.com"
           >
             Product
           </Mlink>

@@ -85,7 +85,7 @@ export const Report = () => {
           Your carbon footprint is {footprint.toFixed(1)} tons of CO₂e.
         </Typography>
         <Typography
-          marginBottom={"2rem"}
+          marginBottom={"0.5rem"}
           textAlign="center"
           variant="h2"
           sx={{
@@ -97,6 +97,15 @@ export const Report = () => {
         >
           Here's what that means!
         </Typography>
+        <Typography
+          marginBottom={"2rem"}
+          textAlign="center"
+          fontWeight={600}
+          sx={{ opacity: "0.6" }}
+        >
+          Erase your carbon footprint by contributing to green initiatives that
+          suck CO2 from the atmosphere.
+        </Typography>
         <Box
           sx={{
             display: "flex",
@@ -107,7 +116,7 @@ export const Report = () => {
           <Mlink
             target="_blank"
             rel="noopener"
-            href="https://www.google.com"
+            href="https://www.instamojo.com/@lowsoot_official/l2f5fbdd27e464b7187fa06b6369a4370"
             underline="none"
           >
             <Button variant="contained">Take action</Button>
@@ -125,8 +134,8 @@ export const Report = () => {
           lineHeight={{ xs: "0.8rem", md: "1.2rem" }}
           textAlign="center"
         >
-          Your carbon footprint is {timesoffpwithworld(footprint)} times that of
-          the entire planet.
+          Your carbon footprint is {timesoffpwithworld(footprint)} the world
+          average.
         </Typography>
       </Box>
       <Box sx={{ paddingRight: "3rem" }} maxWidth={"36.875rem"} marginX="auto">
@@ -151,10 +160,7 @@ export const Report = () => {
           iconemoji={"🍔"}
         />
         <Factcard
-          fact={`A footprint of ${footprint.toFixed(
-            1
-          )} tons would warm the earth by
-            1.5°C in ${monthandyrs.years} years ${monthandyrs.months} months.`}
+          fact={`If everyone on planet starts to emit the same amount of carbon footprint as you, the world will warm by 1.5 degrees in just ${monthandyrs.years} years ${monthandyrs.months} months.`}
           iconemoji={"🌡️"}
         />
         <Factcard
@@ -177,14 +183,26 @@ export const Report = () => {
             <Mlink
               target="_blank"
               rel="noopener"
-              href="https://www.google.com"
+              href="https://www.instamojo.com/@lowsoot_official/l2f5fbdd27e464b7187fa06b6369a4370"
               underline="none"
             >
-              <Typography display="flex" alignItems="center">
+              <Typography
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+              >
                 Take action &nbsp;
                 <ArrowForwardIcon />
               </Typography>
             </Mlink>
+            <Typography
+              textAlign="center"
+              fontWeight={600}
+              sx={{ opacity: "0.6" }}
+            >
+              Erase your carbon footprint by contributing to green initiatives
+              that suck CO2 from the atmosphere.
+            </Typography>
           </Box>
         </Card>
       </Box>
