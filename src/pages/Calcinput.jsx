@@ -9,7 +9,7 @@ import { Roadtravel } from "../components/form/Roadtravel";
 import { Longflights } from "../components/form/Longflights";
 import { Bustravel } from "../components/form/Bustravel";
 import { Railtravel } from "../components/form/Railtravel";
-import { Naturalgas } from "../components/form/Naturalgas";
+// import { Naturalgas } from "../components/form/Naturalgas";
 import { Electricityconsumtion } from "../components/form/Electricityconsumtion";
 import { Diet } from "../components/form/Diet";
 import { Countryform } from "../components/form/Countryform";
@@ -27,7 +27,7 @@ export function Calcinput() {
     // carmodifier: Carmodifier,
     bustravel: Bustravel,
     railtravel: Railtravel,
-    naturalgas: Naturalgas,
+    // naturalgas: Naturalgas,
     electricityconsumtion: Electricityconsumtion,
     diet: Diet,
     countryform: Countryform,
