@@ -15,9 +15,9 @@ export function Aptsize() {
               });
    */
   const state = [
-    { id: 1, text: "Small apartment 32 square meters", value: "32" },
-    { id: 2, text: "Average home  43 square meters", value: "43" },
-    { id: 3, text: "Larger home  128 square meters", value: "128" },
+    { id: 1, text: "Small apartment 32 sq. ft", value: "32" },
+    { id: 2, text: "Average home  43 sq. ft", value: "43" },
+    { id: 3, text: "Larger home  128 sq. ft", value: "128" },
     { id: 4, text: "custom", value: "1", isCustom: true },
   ];
   const finobjval = state[state.length - 1]?.isCustom
