@@ -57,3 +57,38 @@ body {
 .fullimagewidth {
   width: 100%;
 }
+.elementsidebar {
+  -ms-overflow-style: none;
+  width: fit-content;
+  scrollbar-width: none;
+  overflow-y: scroll;
+  max-width: fit-content;
+  padding: 5rem 0;
+  height: 25rem;
+}
+.elementsidebar::-webkit-scrollbar {
+  display: none;
+}
+.selected-insidebar {
+  opacity: 0.6;
+  cursor: pointer;
+  /* margin-top: 1rem; */
+  /* margin-bottom: 1rem; */
+}
+.selected-insidebar:first-child {
+  margin-top: 2rem;
+}
+.selected-insidebar:last-child {
+  margin-bottom: 2rem;
+}
+
+.selected-insidebarimage {
+  width: 8rem;
+}
+.bg-gray {
+  opacity: 1;
+}
+.elementsidebar__text {
+  text-align: center;
+  font-size: 0.8rem;
+}

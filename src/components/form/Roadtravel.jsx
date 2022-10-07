@@ -8,9 +8,7 @@ export function Roadtravel(params) {
     <div>
       <Box>
         <Box
-          sx={{
-            width: { xs: "7rem", md: "10rem" },
-          }}
+          sx={{ display: { md: "none" }, width: { xs: "7rem", md: "10rem" } }}
         >
           <img
             className="fullimagewidth"

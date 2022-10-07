@@ -8,6 +8,7 @@ import { Carprovider } from "./context/Carcontext";
 import { GetQuestioncontextprovider } from "./context/Questioncontext";
 import { Protectionprovider } from "./context/Protectioncontext";
 import { BrowserRouter } from "react-router-dom";
+import { Multiformprovider } from "./context/Multiformcontext";
 
 const theme = createTheme({
   palette: {
@@ -31,11 +32,13 @@ root.render(
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <Protectionprovider>
-          <Carprovider>
-            <GetQuestioncontextprovider>
-              <App />
-            </GetQuestioncontextprovider>
-          </Carprovider>
+          <Multiformprovider>
+            <Carprovider>
+              <GetQuestioncontextprovider>
+                <App />
+              </GetQuestioncontextprovider>
+            </Carprovider>
+          </Multiformprovider>
         </Protectionprovider>
       </BrowserRouter>
     </ThemeProvider>

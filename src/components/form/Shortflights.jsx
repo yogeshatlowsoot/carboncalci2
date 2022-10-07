@@ -30,6 +30,7 @@ export function Shortflights() {
       <Box>
         <Box
           sx={{
+            display: { md: "none" },
             width: { xs: "7rem", md: "10rem" },
           }}
         >
