@@ -8,9 +8,9 @@ export function Electricityconsumtion() {
   const [numeros, setNumeros] = useState(7);
   const { questionstate, questiondispatch } = useGetQuestion();
   const state = [
-    { id: 1, text: "A little (23 kWh/month)", value: "23" },
-    { id: 2, text: "Average (69 kWh/month)", value: "69" },
-    { id: 3, text: "A lot (208 kWh/month)", value: "208" },
+    { id: 1, text: "A little (23 units)", value: "23" },
+    { id: 2, text: "Average (69 units)", value: "69" },
+    { id: 3, text: "A lot (208 units)", value: "208" },
     {
       id: 4,
       text: "custom",
@@ -41,8 +41,8 @@ export function Electricityconsumtion() {
         </Box>
         <Questiontext>How much electricity do you use?</Questiontext>
         <Questiontip>
-          Your electrical bill should tell you how many kWh you used (in
-          kWh/units).
+          Your electrical bill per month should tell you how many units you used
+          (in kWh/month).
         </Questiontip>
       </Box>
       <Box marginBottom="7rem" display="flex" flexDirection="column" gap="1rem">

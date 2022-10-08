@@ -24,7 +24,7 @@ export function Roadtravel(params) {
       <Box marginBottom="7rem" display="flex" flexDirection="column" gap="1rem">
         <TextField
           // drive each week
-          label="road travel per week"
+          label="car travel per week"
           type="number"
           min="0"
           value={questionstate.roadtravel}

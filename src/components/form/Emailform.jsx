@@ -2,6 +2,8 @@ import { Box, Button, TextField } from "@mui/material";
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useFormik } from "formik";
+import * as yup from "yup";
 // CircularProgress
 import { useCars } from "../../context/Carcontext";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -13,84 +15,123 @@ import { useProtectioncontext } from "../../context/Protectioncontext";
 export function Emailform() {
   const { questionstate } = useGetQuestion();
   const { setcodeval } = useProtectioncontext();
-  const [email, setEmail] = useState("");
   const [loader, setLoader] = useState(false);
   const { cars } = useCars();
   const navigate = useNavigate();
-  async function handleSubmit(event) {
-    event.preventDefault();
-    try {
-      // console.log("sending reques");
-      setLoader(true);
-      const response = await axios.post(
-        "https://lossoo.bleedblue.repl.co/injectvals",
-        {
-          ...questionstate,
-          mail: email,
-          countycode: questionstate.country,
-          cars,
-          recordcode: Date.now(),
+  const validationSchema = yup.object({
+    email: yup
+      .string("Enter your email")
+      .email("Enter a valid email")
+      .required("Email is required"),
+    phone: yup
+      .string("Enter your phone")
+      .required("Phone is required")
+      .length(10, "Please enter a valid phone"),
+    name: yup
+      .string("Enter your name")
+      .required("Name is required")
+      .min(1, "Please enter a valid name"),
+  });
+  const formik = useFormik({
+    initialValues: {
+      email: "foobar@example.com",
+      phone: "0000000000",
+      name: "foobar",
+    },
+    validationSchema: validationSchema,
+    onSubmit: async (values) => {
+      try {
+        setLoader(true);
+        const response = await axios.post(
+          "https://lossoo.bleedblue.repl.co/injectvals",
+          {
+            ...values,
+            mail: values.email,
+            countycode: questionstate.country,
+            cars,
+            recordcode: Date.now(),
+            ...questionstate,
+          }
+        );
+        localStorage.setItem("clientcodeval", values.email);
+        if (response.status === 200) {
+          setcodeval(values.email);
+          navigate("/report");
         }
-      );
-      // console.log("got response");
-      // console.log({
-      //   ...questionstate,
-      //   email,
-      //   cars,
-      //   countycode: questionstate.country,
-      //   recordcode: Date.now(),
-      // });
-      // console.log(response);
-      localStorage.setItem("clientcodeval", email);
-      if (response.status === 200) {
-        setcodeval(email);
-        navigate("/report");
+      } catch (error) {
+        toast.error("Please Try after some time!", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      } finally {
+        setLoader(false);
       }
-    } catch (error) {
-      toast.error("Please Try after some time!", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    } finally {
-      setLoader(false);
-    }
-  }
+    },
+  });
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <Box>
-          <Questiontext>
-            Enter your email to save and view your results?
-          </Questiontext>
-          <Questiontip>
-            Your results include your carbon footprint, and a detailed report on
-            how you can go carbon neutral.
-          </Questiontip>
-        </Box>
-        <Box
-          marginBottom="7rem"
-          display="flex"
-          flexDirection="column"
-          gap="1rem"
-        >
-          <TextField
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            label="email"
-            type="email"
-            required
-          />
-        </Box>
+      <Box>
+        <Questiontext>
+          Enter your email to save and view your results?
+        </Questiontext>
+        <Questiontip>
+          Your results include your carbon footprint, and a detailed report on
+          how you can go carbon neutral.
+        </Questiontip>
+      </Box>
+      <form onSubmit={formik.handleSubmit}>
+        <TextField
+          fullWidth
+          sx={{ marginBottom: "1rem" }}
+          name="email"
+          label="Email"
+          value={formik.values.email}
+          onChange={formik.handleChange}
+          error={formik.touched.email && Boolean(formik.errors.email)}
+          helperText={formik.touched.email && formik.errors.email}
+        />
+        {/* <TextField
+          fullWidth
+          sx={{ marginBottom: "1rem" }}
+          name="password"
+          label="Password"
+          type="password"
+          value={formik.values.password}
+          onChange={formik.handleChange}
+          error={formik.touched.password && Boolean(formik.errors.password)}
+          helperText={formik.touched.password && formik.errors.password}
+        /> */}
+        <TextField
+          fullWidth
+          sx={{ marginBottom: "1rem" }}
+          name="phone"
+          label="Phone"
+          type="phone"
+          value={formik.values.phone}
+          onChange={formik.handleChange}
+          error={formik.touched.phone && Boolean(formik.errors.phone)}
+          helperText={formik.touched.phone && formik.errors.phone}
+        />
+        <TextField
+          fullWidth
+          sx={{ marginBottom: "1rem" }}
+          name="name"
+          label="Name"
+          type="name"
+          value={formik.values.name}
+          onChange={formik.handleChange}
+          error={formik.touched.name && Boolean(formik.errors.name)}
+          helperText={formik.touched.name && formik.errors.name}
+        />
         <Button type="submit" variant="contained">
           Get Results {loader && <CircularProgress color="spinme" />}
         </Button>
       </form>
-      {/* <p>{JSON.stringify({ carnum, cars })}</p> */}
     </div>
   );
 }

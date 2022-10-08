@@ -38,7 +38,7 @@ export function Longflights() {
         </Questiontext>
         <Questiontip>
           Count any flights longer than 3 hours or much greater than 1000km,
-          like flying from Los Angeles to New York.
+          like flying from Delhi to Mumbai.
         </Questiontip>
       </Box>
       <Box marginBottom="7rem" display="flex" flexDirection="column" gap="1rem">

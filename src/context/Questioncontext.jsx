@@ -44,6 +44,11 @@ export function GetQuestioncontextprovider({ children }) {
           ...state,
           country: action.payload.country,
         };
+      case "SET_CITY":
+        return {
+          ...state,
+          cityname: action.payload.city,
+        };
       default:
         throw new Error();
     }
@@ -62,6 +67,7 @@ export function GetQuestioncontextprovider({ children }) {
     diet: "veg",
     country: "IN",
     roadtravel: "0",
+    cityname: "Mumbai",
   });
   return (
     <GetQuestionprov.Provider value={{ questionstate, questiondispatch }}>

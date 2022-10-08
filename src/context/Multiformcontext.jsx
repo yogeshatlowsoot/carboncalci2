@@ -19,8 +19,6 @@ export function Multiformprovider({ children }) {
     setState((prevstate) => prevstate - 1);
   };
   const comps = {
-    shortflights: Shortflights,
-    longflights: Longflights,
     aptsize: Aptsize,
     roadtravel: Roadtravel,
     bustravel: Bustravel,
@@ -28,6 +26,8 @@ export function Multiformprovider({ children }) {
     electricityconsumtion: Electricityconsumtion,
     diet: Diet,
     countryform: Countryform,
+    shortflights: Shortflights,
+    longflights: Longflights,
     emailform: Emailform,
   };
   const keys = Object.keys(comps);

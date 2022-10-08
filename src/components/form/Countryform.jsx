@@ -1,4 +1,4 @@
-import { Box, InputLabel, NativeSelect } from "@mui/material";
+import { Box, InputLabel, NativeSelect, TextField } from "@mui/material";
 import { useGetQuestion } from "../../context/Questioncontext";
 import { Questiontext } from "../Questiontext";
 export function Countryform() {
@@ -275,11 +275,12 @@ export function Countryform() {
             alt="logoimage"
           />
         </Box>
-        <Questiontext>What country do you live in?</Questiontext>
+        <Questiontext>What do you live?</Questiontext>
       </Box>
       <Box marginBottom="7rem" display="flex" flexDirection="column" gap="1rem">
         <InputLabel variant="standard">Country</InputLabel>
         <NativeSelect
+          sx={{ marginBottom: "2rem" }}
           onChange={handleChange}
           defaultValue={questionstate.country}
         >
@@ -288,11 +289,25 @@ export function Countryform() {
               {counry.name}
             </option>
           ))}
-          {/* <option value={10}>Ten</option>
-          <option value={20}>Twenty</option>
-          <option value={30}>Thirty</option> */}
         </NativeSelect>
+        <TextField
+          error={questionstate.cityname.length > 0 ? false : true}
+          value={questionstate.cityname}
+          label="city"
+          helperText={
+            questionstate.cityname.length > 0 ? "" : "Please enter a city name"
+          }
+          onChange={(event) => {
+            questiondispatch({
+              type: "SET_CITY",
+              payload: {
+                city: event.target.value,
+              },
+            });
+          }}
+        />
       </Box>
+      <Box></Box>
     </>
   );
 }

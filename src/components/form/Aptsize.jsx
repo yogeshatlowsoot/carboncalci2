@@ -43,8 +43,8 @@ export function Aptsize() {
         </Box>
         <Questiontext>How big is your living space?</Questiontext>
         <Questiontip>
-          Count any flights shorter than 3 hours or around 1000km, like flying
-          from San Francisco to Los Angeles.{JSON.stringify(showcusti)}
+          If you have shared living spaces, divide it by the number of roommates
+          who use it.
         </Questiontip>
       </Box>
       <Box marginBottom="7rem" display="flex" flexDirection="column" gap="1rem">

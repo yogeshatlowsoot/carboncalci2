@@ -45,7 +45,7 @@ export function Shortflights() {
         </Questiontext>
         <Questiontip>
           Count any flights shorter than 3 hours or around 1000km, like flying
-          from San Francisco to Los Angeles.
+          from Pune to Mumbai.
         </Questiontip>
       </Box>
       <Box marginBottom="7rem" display="flex" flexDirection="column" gap="1rem">

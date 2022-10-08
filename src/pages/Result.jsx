@@ -99,6 +99,7 @@ export const Report = () => {
         </Typography>
         <Typography
           marginBottom={"2rem"}
+          fontSize="1rem"
           textAlign="center"
           fontWeight={600}
           sx={{ opacity: "0.6" }}
