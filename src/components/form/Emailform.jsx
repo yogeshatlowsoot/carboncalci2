@@ -1,23 +1,20 @@
 import { Box, Button, TextField } from "@mui/material";
-import { useState } from "react";
-import axios from "axios";
-import { toast } from "react-toastify";
 import { useFormik } from "formik";
 import * as yup from "yup";
 // CircularProgress
-import { useCars } from "../../context/Carcontext";
-import CircularProgress from "@mui/material/CircularProgress";
 import { useGetQuestion } from "../../context/Questioncontext";
 import { Questiontext, Questiontip } from "../Questiontext";
-import { useNavigate } from "react-router-dom";
-import { useProtectioncontext } from "../../context/Protectioncontext";
+// import { useNavigate } from "react-router-dom";
+// import { useProtectioncontext } from "../../context/Protectioncontext";
+import { useMultiformcontext } from "../../context/Multiformcontext";
 
 export function Emailform() {
-  const { questionstate } = useGetQuestion();
-  const { setcodeval } = useProtectioncontext();
-  const [loader, setLoader] = useState(false);
-  const { cars } = useCars();
-  const navigate = useNavigate();
+  const { questiondispatch } = useGetQuestion();
+  const { gotoNext } = useMultiformcontext();
+  // const { setcodeval } = useProtectioncontext(); questionstate
+  // const [loader, setLoader] = useState(false);
+  // const { cars } = useCars();
+  // const navigate = useNavigate();
   const validationSchema = yup.object({
     email: yup
       .string("Enter your email")
@@ -40,37 +37,52 @@ export function Emailform() {
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      try {
-        setLoader(true);
-        const response = await axios.post(
-          "https://lossoo.bleedblue.repl.co/injectvals",
-          {
-            ...values,
-            mail: values.email,
-            countycode: questionstate.country,
-            cars,
-            recordcode: Date.now(),
-            ...questionstate,
-          }
-        );
-        localStorage.setItem("clientcodeval", values.email);
-        if (response.status === 200) {
-          setcodeval(values.email);
-          navigate("/report");
-        }
-      } catch (error) {
-        toast.error("Please Try after some time!", {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      } finally {
-        setLoader(false);
-      }
+      // try {
+      //   setLoader(true);
+      //   const response = await axios.post(
+      //     "https://lossoo.bleedblue.repl.co/injectvals",
+      //     {
+      //       ...values,
+      //       mail: values.email,
+      //       countycode: questionstate.country,
+      //       cars,
+      //       recordcode: Date.now(),
+      //       ...questionstate,
+      //     }
+      //   );
+      //   localStorage.setItem("clientcodeval", values.email);
+      //   if (response.status === 200) {
+      //     setcodeval(values.email);
+      //     navigate("/report");
+      //   }
+      // } catch (error) {
+      //   toast.error("Please Try after some time!", {
+      //     position: "top-right",
+      //     autoClose: 3000,
+      //     hideProgressBar: false,
+      //     closeOnClick: true,
+      //     pauseOnHover: true,
+      //     draggable: true,
+      //     progress: undefined,
+      //   });
+      // } finally {
+      //   setLoader(false);
+      // }
+      // console.log({
+      //   emailvalue: values.email,
+      //   phoneno: values.phone,
+      //   nameval: values.name,
+      // });
+
+      questiondispatch({
+        type: "SET_MAILFORM",
+        payload: {
+          emailvalue: values.email,
+          phoneno: values.phone,
+          nameval: values.name,
+        },
+      });
+      gotoNext();
     },
   });
   return (
@@ -95,17 +107,6 @@ export function Emailform() {
           error={formik.touched.email && Boolean(formik.errors.email)}
           helperText={formik.touched.email && formik.errors.email}
         />
-        {/* <TextField
-          fullWidth
-          sx={{ marginBottom: "1rem" }}
-          name="password"
-          label="Password"
-          type="password"
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          error={formik.touched.password && Boolean(formik.errors.password)}
-          helperText={formik.touched.password && formik.errors.password}
-        /> */}
         <TextField
           fullWidth
           sx={{ marginBottom: "1rem" }}
@@ -129,7 +130,7 @@ export function Emailform() {
           helperText={formik.touched.name && formik.errors.name}
         />
         <Button type="submit" variant="contained">
-          Get Results {loader && <CircularProgress color="spinme" />}
+          Next
         </Button>
       </form>
     </div>

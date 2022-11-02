@@ -19,6 +19,7 @@ export function Multiformprovider({ children }) {
     setState((prevstate) => prevstate - 1);
   };
   const comps = {
+    emailform: Emailform,
     aptsize: Aptsize,
     roadtravel: Roadtravel,
     bustravel: Bustravel,
@@ -28,7 +29,6 @@ export function Multiformprovider({ children }) {
     countryform: Countryform,
     shortflights: Shortflights,
     longflights: Longflights,
-    emailform: Emailform,
   };
   const keys = Object.keys(comps);
   const lengthkeys = keys.length;
@@ -93,7 +93,7 @@ export function Multiformprovider({ children }) {
       id: "emailform",
       imageurl:
         "https://projectwren.imgix.net/calculator-icons/cloud_finish_flag.png?auto=format%2Ccompress&q=35",
-      nameval: "finish",
+      nameval: "Information",
     },
   ];
   const sidebararray = [...keys]

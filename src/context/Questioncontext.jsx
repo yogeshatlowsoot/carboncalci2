@@ -49,6 +49,13 @@ export function GetQuestioncontextprovider({ children }) {
           ...state,
           cityname: action.payload.city,
         };
+      case "SET_MAILFORM":
+        return {
+          ...state,
+          emailvalue: action.payload.emailvalue,
+          phoneno: action.payload.phoneno,
+          nameval: action.payload.nameval,
+        };
       default:
         throw new Error();
     }
@@ -68,6 +75,9 @@ export function GetQuestioncontextprovider({ children }) {
     country: "IN",
     roadtravel: "0",
     cityname: "Mumbai",
+    emailvalue: "foobar@example.com",
+    phoneno: "0000000000",
+    nameval: "foobar",
   });
   return (
     <GetQuestionprov.Provider value={{ questionstate, questiondispatch }}>
